@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <style>
+        .circle{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .circle-mood{
+            box-sizing: border-box;
+            width: 100%; height: 100%;
+            border: 10px solid yellow;
+            border-radius: 50%;
+            transition: .5s;
+            cursor: pointer;
+        }
+        .clicked{
+            border: 50px solid green;
+        }
+        .line-short, .line-long{
+            position: absolute;
+            background: white;
+            transition: .1s;
+            opacity: 0;
+        }
+        .line-short{
+            width: 30px;
+            height: 10px;
+            top: 55px;
+            left: 20px;
+            transform: rotate(45deg);
+        }
+        .line-long{
+            width: 50px;
+            height: 10px;
+            top: 44px;
+            left: 35px;
+            transform: rotate(-45deg);
+        }
+        .clicked ~ .line-long{
+            opacity: 1;
+        }
+        .clicked ~ .line-short{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="circle-mood"></div>
+        <span class="line-short"></span>
+        <span class="line-long"></span>
+    </div>
+    <script>
+        $('.circle-mood').click(function(){
+            $(this).toggleClass('clicked');
+        });
+    </script>
+</body>
+</html>
